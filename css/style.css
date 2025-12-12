@@ -1,0 +1,771 @@
+/* ========================================
+   1. GLOBAL STYLES & VARIABLES
+======================================== */
+:root {
+    --primary-color: #00c3ff;
+    --secondary-color: #F8F8F8;
+    --background-color: #0A0A0A;
+    --section-background: #0D0D0D;
+    --text-color: #DCDCDC;
+    --font-family: 'Poppins', sans-serif;
+    --header-height: 60px;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    text-transform: capitalize;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 25px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(118, 178, 216, 0.4);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(0, 195, 255, 0.6);
+}
+
+/* Sections */
+section {
+    padding: 100px 5%;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+#about, #experience {
+    background-color: var(--section-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-size: 3em;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* ========================================
+   2. HEADER & NAVIGATION
+======================================== */
+/* ==========================
+   HEADER (DESKTOP)
+=========================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 5%;
+}
+
+.logo {
+    font-size: 1.7em;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.logo span{
+    /* font-size: 1.7em;
+    font-weight: 700; */
+    color: var(--primary-color);
+}
+
+/* DESKTOP NAVIGATION */
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    position: relative;
+    font-weight: 400;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: var(--primary-color);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* HAMBURGER HIDDEN ON DESKTOP */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+
+
+/* ================================
+   HOME SECTION (Desktop Default)
+================================ */
+
+#home {
+    padding-top: calc(var(--header-height) + 25px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 10px;
+    min-height: 100vh;
+    text-align: left;
+}
+
+/* TEXT ALWAYS ON LEFT (DESKTOP) */
+.hero-content {
+    order: 1;
+}
+
+/* IMAGE ALWAYS ON RIGHT (DESKTOP) */
+.hero-image-container {
+    order: 2;
+    display: flex;
+    justify-content: center;
+}
+
+/* MAIN TEXT STYLES */
+.hero-content h1 {
+    font-size: 4em;
+    /* margin-top: 2px;
+    margin-bottom: 0.2em; */
+}
+
+.hero-content p {
+    font-size: 1em;
+    max-width: 500px;
+    text-align: left;
+}
+
+.hero-content h5 {
+    font-size: 2em;
+    /* max-width: 500px; */
+}
+
+.hello {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.name {
+    color: var(--secondary-color);
+}
+
+.network {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-weight: 450;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* IMAGE STYLING */
+.hero-image img{
+    width: 400px;
+    height: 400px;
+    background-color: #202020;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 50px rgba(0, 195, 255, 0.7), 0 0 150px rgba(0, 195, 255, 0.4);
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.03);
+}
+
+
+/* ================================
+   RESPONSIVE — Mobile View
+   Image FIRST, Text SECOND
+================================ */
+
+@media (max-width: 900px) {
+
+    #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* IMAGE FIRST ON MOBILE */
+    .hero-image-container {
+        order: 1;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    /* TEXT SECOND ON MOBILE */
+    .hero-content {
+        order: 2;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+
+/* ========================================
+   4. ABOUT SECTION
+======================================== */
+.about-content {
+    text-align: center;
+}
+
+.about-image img {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #202020;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 30px rgba(0, 195, 255, 0.6);
+
+}
+
+
+.about-text p {
+    text-align:left;
+}
+
+/* ========================================
+   5. SKILLS SECTION
+======================================== */
+#skills {
+    text-align: center;
+}
+
+.skills-list {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.skill-item-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-bar {
+    background: #333;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #84d3ec, var(--primary-color));
+    transition: width 2s ease;
+}
+
+.skill-percentage {
+    opacity: 0;
+    transition: opacity 1s ease 1s;
+}
+
+/* ========================================
+   6. EXPERIENCE SECTION (UPDATED)
+======================================== */
+/* EXPERIENCE — Improved Design */
+
+.exp-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exp-year {
+    font-size: 1.9em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0;
+    opacity: 0.95;
+}
+
+.exp-box {
+    margin-left: 0;
+    padding: 28px;
+    background: #111;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.55);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.exp-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0, 195, 255, 0.6);
+}
+
+.exp-box p {
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.company {
+    color: #ccc;
+    margin-bottom: 12px;
+    display: block;
+    font-size: 0.95em;
+}
+
+/* ========================================
+   7. CONTACT SECTION (UPDATED)
+======================================== */
+/* CONTACT — Improved Professional Look */
+
+/* ================================
+   CONTACT SECTION (Premium Design)
+================================ */
+
+#contact {
+    text-align: center;
+    padding: 100px 5%;
+}
+
+.contact-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 50px 40px;
+    border-radius: 18px;
+
+    /* Glassmorphism effect */
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(12px);
+
+    border: 1.5px solid rgba(31, 172, 232, 0.08);
+
+    /* Glow */
+    box-shadow: 0 0 25px rgba(31, 122, 202, 0.598),
+                0 0 50px rgba(0, 123, 255, 0.08);
+}
+
+.contact-intro {
+    color: #ccc;
+    font-size: 1.15em;
+    margin-bottom: 35px;
+}
+
+/* Form Group */
+.form-group {
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--secondary-color);
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 95%;
+    padding: 16px 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.2px solid rgba(6, 55, 146, 0.34);
+
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1em;
+
+    transition: 0.3s ease;
+}
+
+/* Focus Animation */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(255, 102, 0, 0.08);
+    box-shadow: 0 0 12px rgba(0, 157, 255, 0.45);
+    outline: none;
+}
+
+/* Textarea Size */
+.form-group textarea {
+    resize: none;
+    min-height: 160px;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.15em;
+    letter-spacing: 0.6px;
+}
+
+/* Hover Effect */
+.submit-btn:hover {
+    box-shadow: 0 10px 25px rgba(0, 170, 255, 0.35);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* @media (max-width: 600px) {
+    .contact-box {
+        padding: 35px 25px;
+        border-radius: 14px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .submit-btn {
+        font-size: 1.05em;
+        padding: 14px;
+    }
+} */
+
+/* ========================================
+   8. FOOTER
+======================================== */
+.footer {
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid #1A1A1A;
+    color: #777;
+}
+
+/* ========================================
+   9. RESPONSIVE DESIGN
+======================================== */
+@media (max-width: 900px) {
+    #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        margin: 5px 10px;
+    }
+
+    #home {
+        padding-top: 50px;
+    }
+
+    .section-heading {
+        font-size: 2.5em;
+    }
+}
+
+
+/* HOME RESPONSIVE FIX — IMAGE FIRST ON MOBILE */
+@media (max-width: 900px) {
+    #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        order: 1;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+}
+
+
+/* SKILLS ALWAYS TWO COLUMNS (EXCEPT VERY SMALL SCREENS) */
+@media (max-width: 600px) {
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* HAMBURGER (Always right side on mobile) */
+.hamburger {
+    display: none;
+    font-size: 1.9em;
+    cursor: pointer;
+    color: var(--secondary-color);
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    z-index: 2000;
+}
+
+@media (max-width: 850px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    /* LOGO STAYS LEFT ALWAYS */
+    .logo {
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        font-size: 1.6em;
+        z-index: 2000;
+    }
+
+    /* MENU HIDDEN INITIALLY */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        padding: 20px 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .nav-links.show {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .nav-links a {
+        margin: 12px 0;
+        font-size: 1.2em;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* @media (max-width: 900px) {
+    .social-links {
+        justify-content: center;
+        margin-top: 20px;
+    }
+} */
+
+/* SOCIAL ICONS — MOBILE POSITION FIX */
+@media (max-width: 900px) {
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 15px;   /* Closer to the Let's Talk btn */
+    }
+
+    .hero-content .btn {
+        margin-bottom: 10px; /* Create space above icons */
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+        margin-top: 1px;
+        margin-bottom: 0.1em;
+    }
+
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+        margin-top: 20px;
+    }
+
+    .hero-content {
+        margin-top: 2em;
+    }
+
+    .hero-content .network {
+    font-size: 1.3em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-weight: 450;
+}
+
+.skills-list {
+    max-width: 3px;
+    margin: 0;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 20px;
+}
+}
+
+
+/* VIEW MORE BUTTONS */
+.skills-view-more,
+.experience-view-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-more-btn {
+    padding: 12px 35px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    background:  var(--primary-color);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(118, 178, 216, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(0, 195, 255, 0.6);
+}
+
+
+/* ============================================
+   CONTACT — PERFECT RESPONSIVE FIX (MOBILE)
+============================================ */
+@media (max-width: 600px) {
+
+    /* Contact box scales properly */
+    .contact-box {
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    /* Inputs never overflow */
+    .contact-box .form-group input,
+    .contact-box .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+        font-size: 1em;
+    }
+
+    /* Fix textarea pushing out */
+    .contact-box .form-group textarea {
+        min-height: 130px;
+        resize: none;
+    }
+
+    /* Labels centered for mobile */
+    .contact-box .form-group label {
+        text-align: left;
+        font-size: 0.95em;
+    }
+
+    /* Button full width */
+    .contact-box .submit-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.05em;
+    }
+}
