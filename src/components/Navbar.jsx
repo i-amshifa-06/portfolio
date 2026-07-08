@@ -106,30 +106,34 @@ export default function Navbar() {
           </ul>
 
           <a
-            href="/resume.pdf"
-            download
-            className="
-            hidden
-            lg:block
-            px-5
-            py-2.5
-            rounded-xl
-            bg-gradient-to-r
-            from-violet-600
-            to-fuchsia-600
-            hover:scale-105
-            active:scale-95
-            transition-all
-            duration-300
-            text-sm
-            font-medium
-            outline-none
-            focus-visible:ring-2
-            focus-visible:ring-violet-400
-            "
-          >
-            Resume
-          </a>
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="View Resume"
+  className="
+    hidden
+    lg:flex
+    items-center
+    gap-2
+    px-5
+    py-2.5
+    rounded-xl
+    bg-gradient-to-r
+    from-violet-600
+    to-fuchsia-600
+    hover:scale-105
+    active:scale-95
+    transition-all
+    duration-300
+    text-sm
+    font-medium
+    outline-none
+    focus-visible:ring-2
+    focus-visible:ring-violet-400
+  "
+>
+  📄 Resume
+</a>
 
           <button
             onClick={() => setOpen(!open)}

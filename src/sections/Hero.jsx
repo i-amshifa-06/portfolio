@@ -156,31 +156,34 @@ export default function Hero() {
 
               {/* Download Resume */}
 
-              <a
-                href="/resume.pdf"
-                download
-                className="
-                w-full
-                sm:w-auto
-                px-7
-                py-4
-                rounded-2xl
-                border
-                border-white/10
-                bg-white/5
-                backdrop-blur-xl
-                hover:bg-white/10
-                hover:border-violet-500/30
-                flex
-                items-center
-                justify-center
-                active:scale-95
-                transition-all
-                duration-300
-                "
-              >
-                Download Resume
-              </a>
+<a
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Download Resume"
+  className="
+    w-full
+    sm:w-auto
+    px-7
+    py-4
+    rounded-2xl
+    border
+    border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    hover:bg-white/10
+    hover:border-violet-500/30
+    flex
+    items-center
+    justify-center
+    active:scale-95
+    transition-all
+    duration-300
+    font-medium
+  "
+>
+  📄 Download Resume
+</a>
 
             </div>
 
