@@ -58,6 +58,10 @@ export default function About() {
                 src={profile}
                 alt="About"
                 className="w-full h-full object-cover"
+                width={400}
+                height={533}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>

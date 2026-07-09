@@ -55,6 +55,10 @@ export default function Hero() {
                   src={profile}
                   alt="Shifaul Kareem"
                   className="w-full h-full object-cover"
+                  width={380}
+                  height={506}
+                  fetchPriority="high"
+                  decoding="async"
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-black/40 backdrop-blur-xl">
