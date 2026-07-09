@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export default function FloatingTech() {
   const techs = [
@@ -20,7 +20,7 @@ export default function FloatingTech() {
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
 
       {techs.map((tech, index) => (
-        <motion.div
+        <m.div
           key={tech}
           className="
           absolute
@@ -44,8 +44,9 @@ export default function FloatingTech() {
           }}
         >
           {tech}
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );
 }
+

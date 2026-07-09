@@ -1,10 +1,6 @@
-import { motion } from "framer-motion";
-
 export default function Loader() {
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <div
       className="
       fixed
       inset-0
@@ -38,6 +34,7 @@ export default function Loader() {
         </p>
 
       </div>
-    </motion.div>
+    </div>
   );
 }
+

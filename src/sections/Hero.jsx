@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
@@ -36,7 +36,7 @@ export default function Hero() {
 
           {/* IMAGE - MOBILE FIRST */}
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isMounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.8 }}
@@ -88,11 +88,11 @@ export default function Hero() {
 
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* TEXT */}
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -80 }}
             animate={isMounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             transition={{ duration: 0.8 }}
@@ -383,7 +383,7 @@ export default function Hero() {
 
             </div>
 
-          </motion.div>
+          </m.div>
 
         </div>
 

@@ -24,7 +24,9 @@ export default defineConfig({
             if (id.includes('lenis')) {
               return 'vendor-lenis';
             }
-            return 'vendor-other';
+            if (id.includes('gsap')) {
+              return 'vendor-gsap';
+            }
           }
         }
       }

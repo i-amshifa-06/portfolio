@@ -1,5 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import CursorGlow from "./components/CursorGlow";
@@ -22,10 +23,18 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [defer, setDefer] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
+      
+      // Defer mounting of non-critical background components until after first paint
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          setDefer(false);
+        }, 100);
+      });
     }, 800);
 
     return () => clearTimeout(timer);
@@ -37,41 +46,44 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <CursorGlow />
-              <FloatingTech />
-              <SmoothScroll />
-              <ScrollProgress />
+      <LazyMotion features={domAnimation}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                {!defer && <CursorGlow />}
+                {!defer && <FloatingTech />}
+                {!defer && <SmoothScroll />}
+                {!defer && <ScrollProgress />}
 
-              <Navbar />
+                <Navbar />
 
-              <Hero />
-              
-              <ScrollAnimations />
+                <Hero />
+                
+                {!defer && <ScrollAnimations />}
 
-              <Suspense fallback={null}>
-                <About />
-                <Skills />
-                <Projects />
-                <Experience />
-                <Achievements />
-                <Contact />
-                <Footer />
-              </Suspense>
-            </>
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+                <Suspense fallback={null}>
+                  <About />
+                  <Skills />
+                  <Projects />
+                  <Experience />
+                  <Achievements />
+                  <Contact />
+                  <Footer />
+                </Suspense>
+              </>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </LazyMotion>
     </BrowserRouter>
   );
 }
 
 export default App;
+
 
 
 
