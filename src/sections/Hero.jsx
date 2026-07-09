@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
@@ -9,6 +10,15 @@ import {
 import profile from "../assets/profile1.webp";
 
 export default function Hero() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      setIsMounted(true);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <section
       id="home"
@@ -28,7 +38,7 @@ export default function Hero() {
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={isMounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2 flex justify-center w-full"
           >
@@ -84,7 +94,7 @@ export default function Hero() {
 
           <motion.div
             initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isMounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1 text-left"
           >
