@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import CursorGlow from "./components/CursorGlow";
@@ -17,6 +18,8 @@ import Experience from "./sections/Experience";
 import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 
+import NotFound from "./pages/NotFound";
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -33,26 +36,37 @@ function App() {
   }
 
   return (
-    <>
-      <CursorGlow />
-      <FloatingTech />
-      <SmoothScroll />
-      <ScrollAnimations />
-      <ScrollProgress />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <CursorGlow />
+              <FloatingTech />
+              <SmoothScroll />
+              <ScrollAnimations />
+              <ScrollProgress />
 
-      <Navbar />
+              <Navbar />
 
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Achievements />
-      <Contact />
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Experience />
+              <Achievements />
+              <Contact />
 
-      <Footer />
-    </>
+              <Footer />
+            </>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
