@@ -8,10 +8,10 @@ import SmoothScroll from "./components/SmoothScroll";
 import ScrollProgress from "./components/ScrollProgress";
 import Loader from "./components/Loader";
 import Hero from "./sections/Hero";
+import ScrollAnimations from "./components/ScrollAnimations";
 import NotFound from "./pages/NotFound";
 
 // Lazy loaded below-the-fold components
-const ScrollAnimations = lazy(() => import("./components/ScrollAnimations"));
 const About = lazy(() => import("./sections/About"));
 const Skills = lazy(() => import("./sections/Skills"));
 const Projects = lazy(() => import("./sections/Projects"));
@@ -50,9 +50,10 @@ function App() {
               <Navbar />
 
               <Hero />
+              
+              <ScrollAnimations />
 
               <Suspense fallback={null}>
-                <ScrollAnimations />
                 <About />
                 <Skills />
                 <Projects />
@@ -71,5 +72,6 @@ function App() {
 }
 
 export default App;
+
 
 
