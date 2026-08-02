@@ -43,7 +43,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-4 sm:top-5 left-0 right-0 z-50 flex justify-center px-4">
+    <nav className="sticky top-4 sm:top-5 left-0 right-0 z-50 flex justify-center px-4">
       <div
         className="
         w-full
@@ -93,8 +93,8 @@ export default function Navbar() {
                   ${
                     active ===
                     link.href.replace("#", "")
-                      ? "text-violet-400"
-                      : "text-slate-300"
+                      // ? "text-violet-400"
+                      // : "text-slate-300"
                   }
                   `}
                 >
@@ -132,7 +132,7 @@ export default function Navbar() {
     focus-visible:ring-violet-400
   "
 >
-  📄 Resume
+   Resume
 </a>
 
           <button

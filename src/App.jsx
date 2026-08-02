@@ -23,18 +23,10 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [defer, setDefer] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      
-      // Defer mounting of non-critical background components until after first paint
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          setDefer(false);
-        }, 100);
-      });
     }, 800);
 
     return () => clearTimeout(timer);
@@ -52,16 +44,16 @@ function App() {
             path="/"
             element={
               <>
-                {!defer && <CursorGlow />}
-                {!defer && <FloatingTech />}
-                {!defer && <SmoothScroll />}
-                {!defer && <ScrollProgress />}
+                <CursorGlow />
+                <FloatingTech />
+                <SmoothScroll />
+                <ScrollProgress />
 
                 <Navbar />
 
                 <Hero />
                 
-                {!defer && <ScrollAnimations />}
+                <ScrollAnimations />
 
                 <Suspense fallback={null}>
                   <About />

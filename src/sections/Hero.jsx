@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="reveal relative min-h-screen overflow-hidden px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20 flex items-center"
+      className="relative min-h-screen overflow-hidden px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20 flex items-center"
     >
       {/* Background Blobs */}
 
@@ -196,7 +196,7 @@ export default function Hero() {
     font-medium
   "
 >
-  📄 Download Resume
+   Download Resume
 </a>
 
             </div>
